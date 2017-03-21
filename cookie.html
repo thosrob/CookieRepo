@@ -1,24 +1,70 @@
 <html>
  <head>
+   <link type="text/css" rel="stylesheet" href="cookie.css"/>
    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
    <script src="cookie.js"></script>
-   <script>
-   $(document).ready(function() {
-     $('p').html(Cookies.get('name'))
-     $('button').click(function() {
-       Cookies.set('name', $('#name').val())
+    <script>
+     $(document).ready(function() {
+       var current_sugar_count = Cookies.get('sugar-key')
+       $('#sugar-count').html(current_sugar_count)
+
+       $('#sugar').click(function() {
+         var current_sugar_count = parseInt (Cookies.get('sugar-key'))
+         if (!current_sugar_count) {
+           current_sugar_count = 0
+         }
+         var new_sugar_count = current_sugar_count + 1
+         Cookies.set('sugar-key', new_sugar_count)
+         $('#sugar-count').html(new_sugar_count)
+       })
      })
-   })
+     $(document).ready(function() {
+       var current_cc_count = Cookies.get('CC-key')
+       $('#cc-count').html(current_cc_count)
 
-   </script>
+       $('#cc').click(function() {
+         var current_cc_count = parseInt (Cookies.get('cc-key'))
+         if (!current_cc_count) {
+           current_cc_count = 0
+         }
+         var new_cc_count = current_cc_count + 1
+         Cookies.set('cc-key', new_cc_count)
+         $('#cc-count').html(new_cc_count)
+       })
+     })
+     $(document).ready(function() {
+       var current_lemon_count = Cookies.get('lemon-key')
+       $('#lemon-count').html(current_lemon_count)
 
-</head>
+       $('#lemon').click(function() {
+         var current_lemon_count = parseInt (Cookies.get('lemon-key'))
+         if (!current_lemon_count) {
+           current_lemon_count = 0
+         }
+         var new_lemon_count = current_lemon_count + 1
+         Cookies.set('lemon-key', new_lemon_count)
+         $('#lemon-count').html(new_lemon_count)
+       })
+     })
+
+    </script>
+
+ </head>
   <body>
-    <h1 id="title">Welcome</h1>
-    <p>some text</p>
-    <input type="text" id="name"></input>
-     <br>
-
-     <button>Submit</button>
-  </body>
+   <div class="cookie-container">
+    <img id="sugar" src="http://www.cherylscookbook.com/wp-content/uploads/2014/01/Vanilla-Sugar-Cookies.ashx_.jpg">
+     <p>Sugar Cookies</p>
+     <p id="sugar-count">0</p>
+   </div>
+  <div class="cookie-container">
+    <img id="cc" src="http://images-gmi-pmc.edge-generalmills.com/2edf88af-ea10-4527-a559-80cc4d10abca.jpg">
+     <p>Chocolate-Chip</p>
+     <p id="cc-count">0</p>
+  </div>
+  <div class="cookie-container">
+   <img id="lemon" src="https://cdn.averiecooks.com/wp-content/uploads/2014/08/lemoncookies-11.jpg">
+    <p>Lemon</p>
+    <p id="lemon-count">0</p>
+  </div>
+ </body>
 </html>
