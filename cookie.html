@@ -16,6 +16,11 @@
          var new_sugar_count = current_sugar_count + 1
          Cookies.set('sugar-key', new_sugar_count)
          $('#sugar-count').html(new_sugar_count)
+
+         $('#reset').click(function() {
+           Cookies.set('sugar-key', 0)
+           $('#sugar-count').html(0)
+         })
        })
      })
      $(document).ready(function() {
@@ -30,6 +35,11 @@
          var new_cc_count = current_cc_count + 1
          Cookies.set('cc-key', new_cc_count)
          $('#cc-count').html(new_cc_count)
+
+         $('#reset').click(function() {
+           Cookies.set('cc-key', 0)
+           $('#cc-count').html(0)
+         })
        })
      })
      $(document).ready(function() {
@@ -45,12 +55,33 @@
          Cookies.set('lemon-key', new_lemon_count)
          $('#lemon-count').html(new_lemon_count)
        })
+
+       $('#reset').click(function() {
+         Cookies.set('lemon-key', 0)
+         $('#lemon-count').html(0)
+       })
+       $(document).ready(function() {
+       $('#sugar').click(function() {
+       $('p').slideToggle()
      })
 
+    })
+   })
     </script>
-
+   <style>
+   img {
+     cursor: pointer;
+     width: 200px;
+     height: 200px;
+     border: 3px solid black;
+     float: left;
+     margin-left: 60px;
+   }
+   </style>
  </head>
   <body>
+  <h1>Cookie Store</h1>
+  <button id="reset">Submit</button>
    <div class="cookie-container">
     <img id="sugar" src="http://www.cherylscookbook.com/wp-content/uploads/2014/01/Vanilla-Sugar-Cookies.ashx_.jpg">
      <p>Sugar Cookies</p>
